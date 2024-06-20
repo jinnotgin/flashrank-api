@@ -1,4 +1,4 @@
-# Flash Rank API served using Fast API
+# Using FlashRank with Fast API (Cohere rerank API format)
 
 ## SetUp
 
