@@ -1,3 +1,5 @@
 fastapi[all] 
+numpy<2
+uuid
 uvicorn
 flashrank
