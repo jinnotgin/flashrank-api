@@ -9,7 +9,14 @@ import uuid
 
 app = FastAPI()
 
+# Nano (~4MB), blazing fast model & competitive performance (ranking precision).
 ranker = Ranker()
+
+# Small (~34MB), slightly slower & best performance (ranking precision).
+# ranker = Ranker(model_name="ms-marco-MiniLM-L-12-v2")
+
+# Medium (~110MB), slower model with best zeroshot performance (ranking precision) on out of domain data.
+# ranker = Ranker(model_name="rank-T5-flan")
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -94,3 +101,4 @@ async def rerank(request: RankRequest, x_client_name: str = Header(None)):
     return JSONResponse(content=json.loads(response_json))
 
 # To run the app, use the command: uvicorn my_module:app --reload
+# To run the app on network, use the command: uvicorn my_module:app --host 0.0.0.0 --reload
